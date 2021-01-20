@@ -104,14 +104,16 @@ class RestaurantTest {
     * for right input sum should be displayed
     */
 
+    @Test
     public void for_two_items_poori_and_paniPuri_the_order_value_should_be_80() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
         restaurant = Mockito.spy(restaurant);
 
-        Assertions.assertEquals(0,restaurant.getOrderValue("Poori","Pani puri"));
+        Assertions.assertEquals(80,restaurant.getOrderValue("Poori","Pani puri"));
     }
 
+    @Test
     public void for_no_items_the_order_value_should_be_0() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
@@ -120,11 +122,12 @@ class RestaurantTest {
         Assertions.assertEquals(0,restaurant.getOrderValue());
     }
 
+    @Test
     public void for_one_item_poori_the_order_value_should_be_45() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
         restaurant = Mockito.spy(restaurant);
 
-        Assertions.assertEquals(0,restaurant.getOrderValue("Poori"));
+        Assertions.assertEquals(45,restaurant.getOrderValue("Poori"));
     }
 }
