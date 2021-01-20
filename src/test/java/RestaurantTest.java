@@ -108,7 +108,6 @@ class RestaurantTest {
     public void for_two_items_poori_and_paniPuri_the_order_value_should_be_80() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
-        restaurant = Mockito.spy(restaurant);
 
         Assertions.assertEquals(80,restaurant.getOrderValue("Poori","Pani puri"));
     }
@@ -117,7 +116,6 @@ class RestaurantTest {
     public void for_no_items_the_order_value_should_be_0() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
-        restaurant = Mockito.spy(restaurant);
 
         Assertions.assertEquals(0,restaurant.getOrderValue());
     }
@@ -126,8 +124,20 @@ class RestaurantTest {
     public void for_one_item_poori_the_order_value_should_be_45() {
         restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
                 LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
-        restaurant = Mockito.spy(restaurant);
 
         Assertions.assertEquals(45,restaurant.getOrderValue("Poori"));
+    }
+
+    @Test
+    public void test_to_achieve_full_code_coverage()
+    {
+        restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
+                LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
+        restaurant=Mockito.spy(restaurant);
+
+        restaurant.displayDetails();
+        Mockito.verify(restaurant,Mockito.times(1)).displayDetails();
+        Assertions.assertEquals("Megha darshini",restaurant.getName());
+
     }
 }
