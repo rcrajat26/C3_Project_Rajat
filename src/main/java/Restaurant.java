@@ -2,6 +2,7 @@
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Restaurant {
@@ -38,6 +39,8 @@ public class Restaurant {
         return null;
     }
 
+
+
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name,price);
         menu.add(newItem);
@@ -64,4 +67,7 @@ public class Restaurant {
         return name;
     }
 
+    public int getOrderValue(String ...items) {
+        return -1;
+    }
 }

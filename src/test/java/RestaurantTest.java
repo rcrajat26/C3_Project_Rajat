@@ -93,4 +93,38 @@ class RestaurantTest {
         return restaurant;
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    /*
+    * As a user I should be able to view the order value
+    * Parameter to be passed - list of names of items
+    * Return value should be - amount of the order as int
+    * if the item list is empty the sum should be zero
+    * for right input sum should be displayed
+    */
+
+    public void for_two_items_poori_and_paniPuri_the_order_value_should_be_80() {
+        restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
+                LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
+        restaurant = Mockito.spy(restaurant);
+
+        Assertions.assertEquals(0,restaurant.getOrderValue("Poori","Pani puri"));
+    }
+
+    public void for_no_items_the_order_value_should_be_0() {
+        restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
+                LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
+        restaurant = Mockito.spy(restaurant);
+
+        Assertions.assertEquals(0,restaurant.getOrderValue());
+    }
+
+    public void for_one_item_poori_the_order_value_should_be_45() {
+        restaurant= getTestRestaurant("Megha darshini", "Dharwad", LocalTime.of(10, 30),
+                LocalTime.of(4, 30),"Poori",45,"Pani puri",35);
+        restaurant = Mockito.spy(restaurant);
+
+        Assertions.assertEquals(0,restaurant.getOrderValue("Poori"));
+    }
 }
